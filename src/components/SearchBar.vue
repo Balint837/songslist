@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import { ref } from 'vue'; // Import ref
+import { ref } from 'vue';
 
 export default {
   name: 'SearchBar',
   props: ['onSearch'],
   setup(props) {
-    const searchQuery = ref(''); // Create a reactive variable for the input
+    const searchQuery = ref('');
 
     const onSearchInput = () => {
-      props.onSearch(searchQuery.value); // Pass the input value to the parent component
+      props.onSearch(searchQuery.value);
     };
 
     return { searchQuery, onSearchInput };

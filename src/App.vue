@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'; // Import ref and computed
+import { ref, computed } from 'vue';
 import SearchBar from './components/SearchBar.vue';
 import SongList from './components/SongList.vue';
 import songsData from './data/songs.js';
@@ -16,14 +16,14 @@ export default {
   name: 'App',
   components: { SearchBar, SongList },
   setup() {
-    const songs = ref(songsData); // Create a reactive variable for songs
-    const searchQuery = ref(''); // Create a reactive variable for the search query
+    const songs = ref(songsData);
+    const searchQuery = ref('');
     
     const handleSearch = (query) => {
       searchQuery.value = query.toLowerCase();
     };
 
-    const filteredSongs = computed(() => { // Use computed to filter songs dynamically
+    const filteredSongs = computed(() => {
       return songs.value.filter(song =>
         song.TITLE.toLowerCase().includes(searchQuery.value)
       );
